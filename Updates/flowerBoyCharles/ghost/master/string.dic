@@ -10,7 +10,7 @@
 //Anyway, string.dic has to do with the right-click SSP menu, specifically the captions for the menu options. This is VERY IMPORTANT if you're going to set up the Network Update for your ghost! Otherwise this is just an easy place to customize your ghost's menu to your tastes. 
 
 //If you're going to set up Network Update, make sure to read the walkthrough (http://www.ashido.com/ukagaka/walkthrough.html) for more details! I won't get into the whole thing here, but this page has a very important value you will need to change for Network Update to work!
-//Note also here that lines do not end with \e here. This is because the ghost isn't speaking these lines, they're just being used in the code.
+//Note also here that lines do not end with \e here. uhhhh This is because the ghost isn't speaking these lines, they're just being used in the code.
 
 
 //---- Username -----------------------------------------------------------------------
@@ -26,7 +26,7 @@ On_username
 
 On_homeurl
 {
-	"https://pepperedstarz.github.io/flowerboycharles/Updates/ https://raw.githubusercontent.com/pepperedstarz/flowerboycharles/main/Updates/flowerBoyCharles/"
+	"https://raw.githubusercontent.com/pepperedstarz/flowerboycharles/main/Updates/flowerBoyCharles/"
 }
 
 
