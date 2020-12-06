@@ -1,18 +1,18 @@
 Charset,UTF-8
 __system_settings_version__,2
-char0.bind.savearray,900=1 901=0
+char0.bind.savearray,900=0 901=1
 balloon,C:\Users\104bu\Downloads\ssp_2_4_88f\balloon\flowerSparkleBalloon\
 Char1.balloon.isleft,0
 inputbox.left,783
 balloon0.offset,8.-126
 scriptbox.left,437
-Char0.centery,756
+Char0.centery,753
 balloon1.offset,-377.-273
 Char0.balloon.isleft,1
 Char.VirtualDesktop,87cb39f7-65d3-414b-94a5-8079e43f350f
 Char0.center,1247
 scriptbox.top,276
 Char1.centery,768
-Char1.center,114
+Char1.center,166
 inputbox.top,300
 __system_written_flag_do_not_remove__,written

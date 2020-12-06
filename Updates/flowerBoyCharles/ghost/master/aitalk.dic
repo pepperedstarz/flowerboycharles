@@ -54,27 +54,41 @@ RandomTalk : nonoverlap
 
 if CharlieLoveRate >= 50 // he loves you
 	{
+	if username == "Henry" || username == "henry"
+		{
+			"\0\s[5]I love you, henry\e"
+		}
+	if birthdayprint == "????"
+		{
+			"\0\s[8]Hmm...\w8\w8 So, %(username)... I don't believe I've asked yet but, when's your birthday...?\x\c\s[0]What month were you born? \w8Write the number!\![open,inputbox,OnUserBornMonth,-1]\e"
+		}
 	"\0\s[5]I love you!!!\e"
 	}
 elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50 //he likes you
 	{
+	if username == "Henry" || username == "henry"
+		{
+			"\0\s[5]I love you, henry\e"
+		}
+	if birthdayprint == "????"
+		{
+			"\0\s[8]Hmm...\w8\w8 So, %(username)!\nWhen's your birthday...?\x\c\s[0]What month were you born? \w8Write the number!\![open,inputbox,OnUserBornMonth,-1]\e"
+	
+		}
 	"\0\s[0]I like u\e"
 	}
 elseif CharlieLoveRate < 25 && CharlieLoveRate >= 0 //he thinks ur ok but no prefrence
 	{
-		if username == "Henry" || username == "henry"
+	if username == "Henry" || username == "henry"
 		{
 			"\0\s[5]I love you, henry\e"
 		}
-		else
+	if birthdayprint == "????"
 		{
-		if birthdayprint == "????"
-		{
-			"\0\s[8]Hmm...\w8\w8 So, %(username)... May I ask a question...?\e"
+			"\0\s[8]Hmm...\w8\w8 So, %(username)... May I ask a question...?\x\cWhen's your birthday...?\x\c\s[0]What month were you born? \w8Write the number!\![open,inputbox,OnUserBornMonth,-1]\e"
 		}
 
-		"\0\s[0] ur ok\e"
-		}
+	"\0\s[0] ur ok\e"
 	}
 else
 	{

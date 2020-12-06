@@ -15,9 +15,24 @@
 
 OpenSakuraMenu
 {
-		"\0\s[0]\b2Welcome %(username), how can I help you today? Prehaps a bouquet?"
-		"\0\s[0]\b2Wassup, %(username)! You okay? Need anything?"
-		"\0\s[0]\b2Can I help you today, dear %(username)?"
+		
+		if CharlieLoveRate >= 50
+		{
+			"\0\s[0]\b2Can I help you today, dear %(username)?"
+		}
+		elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50
+		{
+			"\0\s[0]\b2Heyo %(username), how can I help you today buddy"
+		}
+		elseif CharlieLoveRate < 25 && CharlieLoveRate >=0
+		{
+			"\0\s[0]\b2Wassup, %(username)! You okay? Need anything?"
+			"\0\s[0]\b2Welcome %(username), how can I help you today? Prehaps a bouquet?"
+		}
+		else
+		{
+			"\0\s[4]\b2What do you need from me, %(username)..."
+		}
 		--
 		MenuRun
 }
@@ -510,9 +525,18 @@ Select.TEACHNAME
 //If the user selects cancel in a menu. Replace as you like, or just leave them blank.
 Select.CANCEL
 	{
-		"\0\s[6]Ah, okay! Nevermind then!\e"
-		
-		"\0\s[6]Okie dokie! Nevermind!\e"
+		if CharlieLoveRate >= 0
+		{
+			"\0\s[6]Ah, okay! Nevermind then!\e"
+			"\0\s[6]Okie dokie! Nevermind!\e"
+			"\0\s[6]Okie! Maybe next time!\e"
+		}
+		else
+		{
+			"\0\s[4]Alright...\e"
+			"\0\s[0]Mmh.\e"
+		}
+
  	}
 
 	

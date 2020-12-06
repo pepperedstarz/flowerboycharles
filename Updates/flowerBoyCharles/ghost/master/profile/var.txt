@@ -1,0 +1,9 @@
+Charset,UTF-8
+install,660495420
+homeurl_found,1
+surfacecount,94
+homeurl,https://raw.githubusercontent.com/pepperedstarz/flowerboycharles/main/Updates/flowerBoyCharles/
+update_result,OK(0)
+firstboot,660495420
+commitmemorysize,1546626
+lastboot,660578587

@@ -77,12 +77,12 @@ OnInstallComplete
  	{	
 		if reference1 == "Hypothetical Shell that doesn't actually exist" //This is the name of your shell as you defined in descript.txt in the shell folder.
 		{
-		"\s[0]We have installed Hypothetical Shell.\w8\1\s[10]Truncated for space.\e"
+		"\s[0]I have installed a Shell.\e"
 		//Replace if needed.
 		}
 		elseif reference1 == "Another totally real shell wow" //As in other files, you can use elseif to expand a list like this to include as many shells as you have or think you'll make. See bootend.dic for more details about elseif.
 		{
-		"\s[0]We have installed another totally real shell.\e"
+		"\s[0]I have installed another shell.\e"
 		//Replace if needed.
 		}
 		else //For any other shell they may install.
@@ -155,7 +155,7 @@ OnVanishSelecting
 
 OnVanishSelected
 {
-	"\0\s[4]Ah, y-yeah...\w4 If you think that's\w8for the best...\n\s[22]I'm sorry, %(username). Byebye./w8/w8\e"
+	"\0\s[4]Ah, y-yeah...\w4 If you think that's \w8for the best...\n\s[22]I'm sorry, %(username). Byebye.\w8\w8\e"
 }
 
 
@@ -173,6 +173,8 @@ OnVanishCancel
 TalkVanishButtonHold
 {
 	"\0\s[3]H-hey...\w8 Why are you being so weird with that button?\w8\w8 You're scaring me...\e"
+
+	"\0\s[3]%(username), you're scaring me... Please get away from that button...\e"
 }
 
 
@@ -181,7 +183,7 @@ TalkVanishButtonHold
  
 OnVanished
  {
-	"\0\s[0]%(reference0) has been uninstalled...\w8\s[3] Gosh, I hope their okay...\e"
+	"\0\s[0]%(reference0) has been uninstalled...\w8\s[3] Gosh, I hope they're okay...\e"
 	
 	//reference0 here is the name of the other ghost.
 }
@@ -280,6 +282,10 @@ OnUpdateBegin
 	"\0\s[6]Okay, let's start the update process!\w8\e"
 	
 	"\0\s[5]It's update time!!\w8\e"
+
+	"\0\s[6]Checking for updates! Checking for Updates!\w8\e"
+
+	"\0\s[8]I wonder if there's any updates...\w4\s[6] Let's have a look!\e"
  }
 
  //---- OnUpdateReady ---------------------------------------------------------
@@ -287,7 +293,9 @@ OnUpdateBegin
  
 OnUpdateReady
  {
-	"\0\s[0]There are %(reference[0]) new files, awesome! New content!\w8\e"
+	"\0\s[6]There are %(reference[0]) new files, awesome! New content!\w8\e"
+
+	"\0\s[5]Wooo, there %(reference[0]) new files!\w8\e"
 	
 	//reference0 here storing the number of new files. You don't have to use it if you don't want to.
  }
@@ -302,11 +310,15 @@ OnUpdateComplete
  	{
  		"\0\s[4]There are no new files, that's a shame...\e"
 		
-		"\0\s[9]Dang, nothing new... I'm sorry, bud. Maybe next time.\e"
+		"\0\s[4]Dang, nothing new... I'm sorry, bud. Maybe next time.\e"
+
+		"\0\s[4]Ah... Nothing new buddy!\s[0] Silly, lazy developer...\w8\e"
 	}
  	else //if the ghost has updated successfully
 	{
 		"\0\s[5]Update successful! Brand new me!\e"
+
+		"\0\s[6]The update was successful! Would you look at that! Sparkly new!\e"
  	}
 }
 
@@ -353,7 +365,7 @@ OnUpdate.OnDownloadBegin
  
 OnUpdate.OnMD5CompareBegin
  {
-	"\1\s[10]Checking the MD5 value...\e"
+	"\0\s[0]Checking the MD5 value...\e"
  }
 
  //---- OnUpdate.OnMD5CompareComplete --------------------------------------------------
@@ -515,7 +527,7 @@ OnNarCreated
  
 OnSNTPBegin
  {
-	"\0\s[0]I'm going to check the time.\w9 Okay! onnecting to %(reference0).\e"
+	"\0\s[0]I'm going to check the time.\w9 Okay! connecting to %(reference0).\e"
 	//%(reference0) here is the site they'll be using to check your clock. I wouldn't worry too much about what the site is or where it's defined, it should be accurate. Replace the dialogue with what you need, you don't have to use reference0 if you don't want to.
  }
 
@@ -631,6 +643,8 @@ OnApplicationFileOpen
 OnBatteryLow
  {
 	"\0\s[0]Your laptop's battery is low! There is %(reference0) power left, charging it now may be a good idea!\nGet the charger!\e"
+
+	"\0\s[3]Your battery is getting low, %(username)! Be ready!\e"
 	//reference0 here is the amount of battery power. Replace as you like.
  }
  
@@ -640,6 +654,8 @@ OnBatteryLow
 OnBatteryCritical
 {
 	"\0\s[2]The laptop's battery is critically low, you need to get to a charger quick! Make sure you save your work!!\e"
+
+	"\0\s[2]%(username)! The battery is really low! Save your work!\e"
 }
  
 //--OnBatteryNotify--------------------------------------------------------------------
@@ -677,14 +693,18 @@ OnShellScaling
 {
 	if reference0 >= 150 //this number is the percentage that you're scaling the ghost up to. In this case, it's 150%.
 	{
-		"\0\s[0]i am now 150% our original size, a big boy!\w8\e"
+		"\0\s[0]I am now 150% our original size, a big boy!\w8\e"
 	}
 	elseif reference0 == 100 //this is 100%
 	{
-		"\0\s[0]We are normal sized, comfy sized!\e"
+		"\0\s[0]I am normal sized, comfy sized!\e"
 	}
 	elseif reference0 == 50 //this is 50%. You can add any percentage that's listed under shell scaling if you want using more elseifs.
 	{
 		"\0\s[0]I am now 50% our original size, a tiny boy!\w8\e"
+	}
+	elseif reference0 > 100 || reference0 < 100
+	{
+		"\0\s[2]Oh! I'm in a new scale?\w8\e"
 	}
 }
