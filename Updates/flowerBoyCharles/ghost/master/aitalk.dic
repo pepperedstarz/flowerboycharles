@@ -1,0 +1,266 @@
+﻿//---------------------------AI Talk--------------------------
+//Alright, this is it! The bread and butter of your ghost. This is where all their random conversations are stored. Of all the .dic files, this is the one you will probably be adding stuff to and updating the most as new dialogue comes to your mind. It is relatively simple in that there aren't many functions or real coding involved with this file, but there are a few cool tricks you can do within randomtalk that can make dialogue with interesting effects, so I'll point them out as we go along.
+//I'm going to leave a lot of examples of different types of dialogue in here that you can study if the possibilities they present intrigue you. Study them carefully!
+
+//Make sure to read the walkthrough (http://www.ashido.com/ukagaka/walkthrough.html) for more details about how to properly format ghost dialogue!
+//I will reiterate that you should be editing these in Notepad++, and in particular, you should set the Language to C (or Java I guess) to properly highlight all the text. It will make things A LOT EASIER for you, trust me! It will also help you keep track of your brackets in case you forget some. If you click on a line with a bracket in Notepad++, it should highlight where the other bracket ends, or turn purple if there's no finishing bracket (which you should definitely fix!)
+//It will also highlight my commented lines in green, so you'll know where they are. Any line beginning with // is a commented line that the code will not read. It's just for your reference!
+
+//--AiTalk
+//Leave this alone.
+//Advanced users, this is mostly setting up whether or not dialogue is in a chain before it displays. Again, you can leave it alone unless you want to screw around with chains for some strange reason.
+
+AiTalk
+ {
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+ 		if mikireflag == 0
+		{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+		}
+ 		else
+		{ 
+		MikireTalk
+ 		}
+	}
+ }
+
+
+//--RandomTalk 
+ //Alright, here we go! This is where ALL your ghost's random dialogue will go! These are the conversations that they'll have with you or each other that pop up depending on the talk rate defined in menu.dic (or if you ignored that, set in bootend.dic in the first boot, which would be every five minutes).
+ 
+//*********************Advanced User Info*******************************
+//These text boxes are meant for those who have an interest in expanding or using more complicated functions in their ghost. Also for my own reference in the future since I plan on using this template too, haha. If you have no interest in any of this and just want to keep things as simple as possible, feel free to skip these boxes.
+
+//ALL your random dialogue NEEDS to be in RandomTalk. You can't link to other functions or something from within RandomTalk, or a separate pool of convos in another .dic file, as far as I can tell. So, how do you then set up certain pools of dialogue that only happen when certain settings are in place (for example, when there are three characters on the screen instead of two) and won't happen when they are false? Basically, you just need to be creative with your if statements. You can nest a ton of ifs and elses in RandomTalk, and if you keep them straight, you can make a lot of dialogue here customized to whatever situation you can come up with. BUT again, you can't call other dialogue into here! I go more into how to set up a "mode" like that in the coding page of the walkthrough site.
+//I GUESS you could set up more dialogue in an envelope perhaps (see word.dic) or another .dic file and then call it in here using envelopes, but that seems a bit redundant. Maybe someone else can think of a use for that though.
+
+//The closest you can get to linking to outside dialogue is via chains, but I'll talk more about chains when we get to them. Being creative with chains can open up a lot of opportunities for you, such as presenting the user with choices every now and then, which I'm pretty sure you can't do within RandomTalk. Maybe you can, I usually do it via chains though. I'll have to experiment with this later.
+//***********************************************************************
+
+RandomTalk : nonoverlap
+{
+	//Alright, here is where all your dialogue will go. I hope you studied how to format dialogue carefully in the walkthrough, as there is little here I can help you with. You're going to have to write most of it yourself. So instead, I'll give you a set of examples to look at.
+
+if CharlieLoveRate >= 50 // he loves you
+	{
+	"\0\s[5]I love you!!!\e"
+	}
+elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50 //he likes you
+	{
+	"\0\s[0]I like u\e"
+	}
+elseif CharlieLoveRate < 25 && CharlieLoveRate >= 0 //he thinks ur ok but no prefrence
+	{
+		if username == "Henry" || username == "henry"
+		{
+			"\0\s[5]I love you, henry\e"
+		}
+		else
+		{
+		if birthdayprint == "????"
+		{
+			"\0\s[8]Hmm...\w8\w8 So, %(username)... May I ask a question...?\e"
+		}
+
+		"\0\s[0] ur ok\e"
+		}
+	}
+else
+	{
+	"\0\s[4]I don't really like you...\e"
+	}
+}	
+
+//--Chains
+//Here is where you will put your bits of chain dialogue. They are outside of RandomTalk, which makes them a bit more flexible as I mentioned above. As you can see, this function is called "firstchain", which was the same tag we put at the end of the chain in aitalk with \e:chain=firstchain.
+
+firstchain
+{{CHAIN
+	"\0\s[0]Here is the second part of the chain.\w8\1\s[10]Will there be more?\e:chain=end"
+}}CHAIN
+
+//Pay careful attention to the CHAIN text and double brackets for these. Double brackets, CHAIN, dialogue, double brackets, CHAIN. If you are planning on making chains, I'd recommend just copying and pasting the chain example here and changing the dialogue and name of the function as you need. Less likely for mistakes to happen, you know?
+//Note also it ends with \e:chain=end, basically ending the chain.
+
+secondchain
+{{CHAIN
+	"\0\s[0]This is the second piece of chained dialogue.\1\w8\s[10]This will lead to a third chain.\e:chain=thirdchain"
+}}CHAIN
+
+thirdchain
+{{CHAIN
+	"\0\s[0]This is the third piece of chained dialogue.\1\w8\s[10]This is the end.\e:chain=end"
+}}CHAIN
+
+//As you can see, you can chain your chains together to make a very long-running conversation if you want! Just make sure to end the chain when you're done.
+
+
+//Alright, we're done with the random converations for now, but there are a few other things in aitalk that we'll need to fill out too.
+
+
+//-OnMinuteChange
+//These are time-related bits of dialogue for your ghost to say. If you're uninterested, you can delete it all except for a line for MikireTalk. So it'd look something like
+
+//OnMinuteChange
+//{
+//timeslot = GetTimeSlot
+//if mikireflag == 1
+// 	{
+// 		MikireTalk
+//	}
+//}
+
+//But I think these are kind of neat, so I'd leave them myself.
+
+OnMinuteChange
+ {
+	timeslot = GetTimeSlot //this tells the ghost what time it is so the time related conversations above will work.
+	--
+ 	if minute == 0 //These check what time it is. Here, it's seeing if the minute equals zero...
+	{
+ 		if hour == 12 //And the hour equals 12, ie it's noon. You can change this to some other hour if you want.
+		{
+ 			"\0\s[0]Oh, hey, would you look at that!It's noon already! Does the day just fly away...\e"
+
+			"\0\s[6]Ah, it's noon! Here begins the afternoon!\e"
+
+			"\0\s[0]Oooh midday!\e"
+
+			"\0\s[0]It's noon, %(username)! Have you had lunch yet?\e"
+
+			"\0\s[6]It's noon, bud! Have you had any water recently?\nMaybe now is a good time to get some?\e"
+			//Replace with appropriate dialogue as you want.
+		}
+ 		elseif hour == 0 //If the hour is zero, aka midnight. Again, you can change this to whatever hour you want to check for.
+		{
+ 			"\0\s[0]It's midnight! You're up late, aren't you %(username)?\e"
+ 			"\0\s[8]Midnight... It's so quiet around this time...\e"
+ 			"\0\s[6]Ah gosh, it's midnight! Maybe you should start thinking about sleeping, %(username)!\e"
+			//Then replace the dialogue with what's appropriate.
+		}
+		elseif hour == 23 //if the hour is 23, aka 11 pm.
+		{
+			if minute == 55 //And if the minutes are at 55.
+			{
+			"\0\s[0]5 minutes to midnight... Maybe you should sleep soon, %(username)...\e"
+			}
+		}
+		elseif hour == 17 //if the hour is 17, or 5 pm. You can add in time checks for whatever times you want, or change what these time checks are looking for. These are just meant to be examples of how it works.
+		{
+			"\0\s[6]It's 5 pm!! That's closing time for the shop!\e"
+			//Replace with what's appropriate.
+		}
+		else
+		{
+			"\0\s[0]Ah, would you look at that! It's %(hour12)'o clock!\e"
+			//%(hour12) stores the time. This is a general top of the hour notification. I personally like this because it helps me keep track of time when I've been working on something, so when a ghost is all "Hey it's 3 o clock" I can be like woah really when did that happen. If you think this is annoying though, you can just delete this bit of dialogue to leave this else statement blank, or leave "" in here instead.
+		}
+	}
+	//Don't touch this part.
+	elseif mikireflag == 1
+ 	{
+ 		MikireTalk
+	}
+ }
+
+//--OnSecondChange
+//Like the above, this handles what happens every time a second goes by. Most of this you will not have to touch.
+
+OnSecondChange
+ {
+	if passsec == 60
+ 		{
+	 	passsec = 1
+ 		passmin = passmin + 1
+		}
+ 	else
+ 		{
+	 	passsec = passsec + 1
+		}
+	if mikireflag == 1 && reference1 == 0
+		{
+			EndMikireTalk
+ 		}
+		mikireflag = reference1
+	if reference2 == 1
+	{
+ 		//This dialogue is for when the two characters are overlapping each other. If you don't want your characters to care, you can just leave this blank.
+		//You can see here the use of two envelopes, screenwidth and screenheight, to tell the user their resolution. Oddly, they are not in parentheses. I'm not sure why this is, but they don't display right otherwise. An odd quirk with these two envelopes.
+		//Note also how Triangle moves away at the end of the dialogue. This is due to the \4 tag. That will make any one character move away from the other if they are able. I talked about this tag and its counterpart tag \5 in the SakuraScript page on the walkthrough.
+	}
+ }
+
+ //---- MikireTalk ---------------------------------------------------------------------
+ //I'm actually a little fuzzy on MikireTalk and what exactly it does since it shows up a lot in odd places, but for the purposes of this function here, what this does is bring up some dialogue when the main character is off the screen. For example, if you dragged Girl over to the side of your monitor until she was partially concealed by it. This dialogue would then come up. If you don't want your characters to care, you can leave the dialogue blank.
+ 
+MikireTalk
+ {
+	"\0\s[3]Oh dear... %(username)... I'm off the screen.\w8\nYou can push Ctrl-Shift-F12 to bring me back."
+	//Note the hotkey combo Triangle mentions. He's telling the truth, that should bring her back on the screen.
+ }
+
+ //----EndMikireTalk--------------------------------------------------------------------
+ //For after you bring the character back on screen.
+ 
+EndMikireTalk
+ {
+	CharlieLoveRate +=1
+	"\0\s[5]Ah! That's much better! Thank you, %(username)!\e"
+ }
+
+
+//**** OnSurfaceRestore *****************************************************************
+//OnSurfaceRestore is a handy function. What this does is that after a short period of time, the ghost will go back to its default pose, so you won't have a ghost stuck in one expression for too long. It's also helpful if you've made one of the characters disappear using \s[-1] in dialogue and didn't bring them back at the end of it. This will do that for you.
+//I'm going to comment out the if/else statements in this because the circumstances in which they'd come up seem pretty unlikely and unnecessary if you're just going to be making a simple ghost. You can just leave this function alone and move on if you want. However, if you do want to use them, just uncomment the lines by deleting the slashes and fill in the info as you need.
+
+//*********************Advanced User Info*******************************
+//You can put if statements in OnSurfaceRestore to make exceptions for certain poses, or to make sure that once they're in a certain pose, they stay in that pose. For example, if you turn my Hunter and Smoker ghost into eggplants, there's a check for the their eggplant pose numbers to make sure they STAY eggplants when OnSurfaceRestore is called.
+//You can also use OnSurfaceRestore to clean up things that might be left on the screen, primarily from using p[number]\s[] to call up other objects or characters. Just make sure to add a p[number]\s[-1] to OnSurfaceRestore, and that should get rid of it each time the ghost cleans itself up.
+//***********************************************************************
+
+OnSurfaceRestore
+ {
+ 	//if reference0 == 4 || reference0 == 6 //This is checking what poses they are in. This looks to see if Girl is in pose 4 or pose 6, since she is reference0.
+ 	//{
+ 	//"\1\s[10]You're in a sad pose.\w8\0\s[0]I'll go back to normal then.\e"
+ 	//}
+ 	//elseif reference1 == 14 || reference1 == 16 //This is doing the same but for Triangle, since he's reference1. It looks to see if he's in pose 14 or post 16.
+ 	//{
+ 	//"\0\s[0]You look sad.\w8\1\s[10]I'll go back to normal.\e"
+ 	//}
+ 	//else
+ 	//{
+	"\0\s[0]\e"
+	//}
+ }
+
+ 
+ //--OnKeyPress
+ //This defines the hotkeys your ghost will use. You can change these to whatever you want, but I don't really know why you would. I'd just leave this alone. Advanced Users can add new hotkeys attached to whatever function if you want.
+ 
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+	OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+	OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+	"\![open,readme]"
+	}
+}
