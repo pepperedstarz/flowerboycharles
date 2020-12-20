@@ -54,67 +54,250 @@ RandomTalk : nonoverlap
 
 if CharlieLoveRate >= 50 // he loves you
 	{
-	if username == "Henry" || username == "henry"
-		{
-			"\0\s[5]I love you, henry\e"
-		}
 	if birthdayprint == "????"
 		{
 			"\0\s[8]Hmm...\w8\w8 So, %(username)... I don't believe I've asked yet but, when's your birthday...?\x\c\s[0]What month were you born? \w8Write the number!\![open,inputbox,OnUserBornMonth,-1]\e"
 		}
-	"\0\s[5]I love you!!!\e"
+	if username == "Henry" || username == "henry"
+		{
+			"\0\s[25]I love you!\e"
+
+			"\0\s[4]I wish I was with you, Henry...\e"
+
+			"\0\s[0]I'm guessing you're not at work today? Are you having a nice day off?\e"
+
+			"\0\s[0]What are you up to, Henry? You having fun? I hope so!\e"
+		}
+	else
+		{
+			"\0\s[1]I really miss Henry...\e"
+
+			"\0\s[8]Is Henry at work today?\s[4] I know he told me I've just forgotten...\e"
+
+			"\0\s[8]I wonder what Henry's up to right now...\s[0] I hope he's okay!\e"
+
+			"\0\s[25]I think I may bother Henry when I see him next...\e"
+		}
+
+	"\0\s[8]Hmm... What would be your favourite flower...? I think mine would be a Blue Rose!\e:chain=blueRoseStart\e"
+
+	"\0\s[0]I was looking around within the files of this place and\s[6] did you know I have hotkeys?\n\x\cYou can press: 't'so I know I should talk again!\n 'r' so I know to repeat my last sentence\n and 'f1' so I know you want to look at the readme!\x\c\s[5]I thought that was really cool! Like body language without seeing it!\w8\w8... almost...\e"
+	
+	"\0\s[2]WHAT!\s[3]\cNononononono...\n%(username)! I think I just saw a spider...\e"
+
+	"\0\s[8]Hmm... What would be your favourite flower...? I'm trying to decide what mine would be...\e"
+
+	"\0\s[0]So... What movies ya like?\e"
+
+	"\0\s[8]Hmmm... I wonder what model plane I should get next... \s[2]OH!\s[5] Maybe a helicopter!\e:chain=modelPlan"
+
+	"\0\s[4]Man...\s[3] I really fancy a hotdog...\e"
+
+	"\0\s[0]What are you up to, %(username)?\e"
+
+	"\0\s[8]A milkshake would be really nice right about now... hm...\e"
+
 	}
 elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50 //he likes you
 	{
-	if username == "Henry" || username == "henry"
-		{
-			"\0\s[5]I love you, henry\e"
-		}
 	if birthdayprint == "????"
 		{
 			"\0\s[8]Hmm...\w8\w8 So, %(username)!\nWhen's your birthday...?\x\c\s[0]What month were you born? \w8Write the number!\![open,inputbox,OnUserBornMonth,-1]\e"
-	
 		}
-	"\0\s[0]I like u\e"
+
+	if username == "Henry" || username == "henry"
+		{
+			"\0\s[25]I love you!\e"
+
+			"\0\s[4]I wish I was with you, Henry...\e"
+
+			"\0\s[0]I'm guessing you're not at work today? Are you having a nice day off?\e"
+
+			"\0\s[0]What are you up to, Henry? You having fun? I hope so!\e"
+		}
+	else
+		{
+			"\0\s[1]I really miss Henry...\e"
+
+			"\0\s[8]Is Henry at work today?\s[4] I know he told me I've just forgotten...\e"
+
+			"\0\s[8]I wonder what Henry's up to right now...\s[0] I hope he's okay!\e"
+
+			"\0\s[25]I think I may bother Henry when I see him next...\e"
+		}
+
+	"\0\s[8]Hmm... What would be your favourite flower...? I think I know what mine would be...\e"
+
+	"\0\s[0]I was looking around within the files of this place and\s[6] did you know I have hotkeys?\n\x\cYou can press: 't'so I know I should talk again!\n 'r' so I know to repeat my last sentence\n and 'f1' so I know you want to look at the readme!\x\c\s[5]I thought that was really cool! Like body language without seeing it!\w8\w8... almost...\e"
+	
+	"\0\s[2]WHAT!\s[3]\cNononononono...\n%(username)! I think I just saw a spider...\e"
+
+	"\0\s[8]Hmm... What would be your favourite flower...? I'm trying to decide what mine would be...\e"
+
+	"\0\s[0]So... What movies ya like?\e"
+
+	"\0\s[8]Hmmm... I wonder what model plane I should get next... \s[2]OH!\s[5] Maybe a helicopter!\e:chain=modelPlan"
+
+	"\0\s[4]Man...\s[3] I really fancy a hotdog...\e"
+
+	"\0\s[0]What are you up to, %(username)?\e"
+
+	"\0\s[8]A milkshake would be really nice right about now... hm...\e"
+
+	"\0\s[8]Do you like musicals?\s[5]\w8\w8 My friend, Reginald, loves them!\e"
+
+	"\0\s[8]Have I formally told you that I own and run a flower shop?\n\s[0]I have a bad habit of assuming people know me from my shop so, if that's not the case,\s[3] I'm sorry for the bad introduction!\e"
+
+	"\0\s[8]A lot of people know things about certain flowers like roses, tulips, dasies and liles but, they seem to always forget about gomphrena globosa and ammi maju! I think they are just as pretty!\e"
+
+	"\0\s[0]Say, %(username)?\s[8] How much do you know about flowers?\w8\s[6] Maybe I can teach you a thing or two about them while I'm here!\e"
+
+	"\0\s[26]But to say that I'm a rainbow\nTo tell me that I'm bright\w8\cWhen I'm so used to feeling wrong\nWell, it makes me feel all right~\e"
+
+	"\0\s[26]Feel the light\nShining like the stars tonight\w8\cRemember what we forgot\nI know it's a long shot\w8\cBut we're bringing it all back, we're bringing it all back~\e"
+
+	"\0\s[0]How come you wanted me here? Was there a reason?\nYou can always visit me while I'm working! We're open Monday to Saturday so, feel free to pop in anytime for a chat!\e"
+
+	"\0\s[26]Oh girl, it's you that I lie with\n\w8\w8As the atom bomb locks in...\n\w8\w8\cOh it's you, I watch TV with\n\w8\w8As the world caves in~\e"
+
+	"\0\s[0]Hey, %(username)! Have you had a drink recently?\e"
+
+	"\0\s[8]Hm... Maybe we should have a snack...\e"
+
+	"\0\s[0]How long has it been since you've had some water? Maybe you should go get some!\e"
+
+	"\0\s[2]You have some pretty interesting things in your documents folder!\w8\c\s[6]I'm joking! I'll never look through your things without premission!\e"
+
 	}
 elseif CharlieLoveRate < 25 && CharlieLoveRate >= 0 //he thinks ur ok but no prefrence
 	{
-	if username == "Henry" || username == "henry"
-		{
-			"\0\s[5]I love you, henry\e"
-		}
 	if birthdayprint == "????"
 		{
 			"\0\s[8]Hmm...\w8\w8 So, %(username)... May I ask a question...?\x\cWhen's your birthday...?\x\c\s[0]What month were you born? \w8Write the number!\![open,inputbox,OnUserBornMonth,-1]\e"
 		}
+	if username == "Henry" || username == "henry"
+		{
+			"\0\s[4]I wish I was with you Henry...\e"
 
-	"\0\s[0] ur ok\e"
+			"\0\s[0]I'm guessing you're not at work today? Are you having a nice day off?\e"
+
+			"\0\s[0]What are you up to, Henry? You having fun? I hope so!\e"
+		}
+	else
+		{
+			"\0\s[1]I really miss Henry...\e"
+
+			"\0\s[8]Is Henry at work today?\s[4] I know he told me I've just forgotten...\e"
+
+			"\0\s[8]I wonder what Henry's up to right now...\s[0] I hope he's okay!\e"
+
+			"\0\s[25]I think I may bother Henry when I see him next...\e"
+		}
+
+	"\0\s[2]WHAT!\s[3]\cNononononono...\n%(username)! I think I just saw a spider...\e"
+
+	"\0\s[8]Hmm... What would be your favourite flower...? I'm trying to decide what mine would be...\e"
+
+	"\0\s[0]So... What movies ya like?\e"
+
+	"\0\s[8]Hmmm... I wonder what model plane I should get next... \s[2]OH!\s[5] Maybe a helicopter!\e:chain=modelPlan"
+
+	"\0\s[4]Man...\s[3] I really fancy a hotdog...\e"
+
+	"\0\s[0]What are you up to, %(username)?\e"
+
+	"\0\s[0]I was looking around within the files of this place and\s[6] did you know I have hotkeys?\n\x\cYou can press: 't'so I know I should talk again!\n 'r' so I know to repeat my last sentence\n and 'f1' so I know you want to look at the readme!\x\c\s[5]I thought that was really cool! Like body language without seeing it!\w8\w8... almost...\e"
+
+	"\0\s[8]A milkshake would be really nice right about now... hm...\e"
+
+	"\0\s[8]Do you like musicals?\s[5]\w8\w8 My friend, Reginald, loves them!\e"
+
+	"\0\s[8]Have I formally told you that I own and run a flower shop?\n\s[0]I have a bad habit of assuming people know me from my shop so, if that's not the case,\s[3] I'm sorry for the bad introduction!\e"
+
+	"\0\s[8]A lot of people know things about certain flowers like roses, tulips, dasies and liles but, they seem to always forget about gomphrena globosa and ammi maju! I think they are just as pretty!\e"
+
+	"\0\s[0]Say, %(username)?\s[8] How much do you know about flowers?\w8\s[6] Maybe I can teach you a thing or two about them while I'm here!\e"
+
+	"\0\s[26]But to say that I'm a rainbow\nTo tell me that I'm bright\w8\cWhen I'm so used to feeling wrong\nWell, it makes me feel all right~\e"
+
+	"\0\s[26]Feel the light\nShining like the stars tonight\w8\cRemember what we forgot\nI know it's a long shot\w8\cBut we're bringing it all back, we're bringing it all back~\e"
+
+	"\0\s[0]How come you wanted me here? Was there a reason?\nYou can always visit me while I'm working! We're open Monday to Saturday so, feel free to pop in anytime for a chat!\e"
+
+	"\0\s[26]Oh girl, it's you that I lie with\n\w8\w8As the atom bomb locks in...\n\w8\w8\cOh it's you, I watch TV with\n\w8\w8As the world caves in~\e"
+
+	"\0\s[0]Hey, %(username)! Have you had a drink recently?\e"
+
+	"\0\s[8]Hm... Maybe we should have a snack...\e"
+
+	"\0\s[0]How long has it been since you've had some water? Maybe you should go get some!\e"
+
+	"\0\s[2]You have some pretty interesting things in your documents folder!\w8\c\s[6]I'm joking! I'll never look through your things without premission!\e"
+
 	}
 else
 	{
-	"\0\s[4]I don't really like you...\e"
+	"\0\s[4]I think you need to start...\w8\w8being nicer to people...\e"
+
+	"\0\s[0]How come you wanted me here? Was there a reason?\nCuz you could have just come to my shop to talk to me. We're open Monday to Saturday...\e"
+
+	"\0\s[8]Hmm...\w8\w8\w8\w8\s[2] Oh!\s[0] Sorry, just thinking...\e"
+
+	"\0\s[0]I was looking around within the files of this place and\s[6] did you know I have hotkeys?\n\x\cYou can press: 't'so I know I should talk again!\n 'r' so I know to repeat my last sentence\n and 'f1' so I know you want to look at the readme!\x\c\s[5]I thought that was really cool! Like body language without seeing it!\w8\w8... almost...\e"
+	
+	"\0\s[1]I really miss Henry...\e"
+
+	"\0\s[26]Oh girl, it's you that I lie with\n\w8\w8As the atom bomb locks in...\n\w8\w8\cOh it's you, I watch TV with\n\w8\w8As the world caves in~\e"
+
+	"\0\s[0]When I get back home, I think I'm going to\s[4] have a nap...\e"
+
+	"\0\s[2]WHAT!\s[3]\cNononononono...\n%(username)! I think I just saw a spider...\e"
+
+	"\0\s[8]Hmm... What would be your favourite flower...? I'm trying to decide what mine would be...\e"
+
+	"\0\s[9]I wanna go home...\e"
+
+	"\0\s[0]What are you doing?\s[3] What is that???\e"
+
+	"\0\s[0]...Have you had any water recently...?\e"
+
+	"\0\s[8]I wonder what Henry's up to right now...\s[0] I hope he's okay!\e"
+
+	"\0\s[0]So... What movies ya like?\e"
+
+	"\0\s[8]Hmmm... I wonder what model plane I should get next...\e"
+
+	"\0\s[4]Is there any reason why you're... sour...?\s[9] It's really easy to be nice, ya know?\e"
+
+	"\0\s[0]Can I go back to my flower shop, please?\e"
+
+	"\0\s[8]Is Henry at work today?\s[4] I know he told me I've just forgotten...\e"
+
+	"\0\s[4]Man...\s[3] I really fancy a hotdog...\s[25] I'll see if Henry wants to go and get hotdogs with me later...\e"
+
+	"\0\s[8]A milkshake would be really nice right about now... hm...\e"
 	}
 }	
 
 //--Chains
 //Here is where you will put your bits of chain dialogue. They are outside of RandomTalk, which makes them a bit more flexible as I mentioned above. As you can see, this function is called "firstchain", which was the same tag we put at the end of the chain in aitalk with \e:chain=firstchain.
 
-firstchain
+blueRoseStart
 {{CHAIN
-	"\0\s[0]Here is the second part of the chain.\w8\1\s[10]Will there be more?\e:chain=end"
+	"\0\s[6]Blue Roses aren't naturally blue! Naturally coloured roses, such as red or white roses, are dyed to a blue or violet pigmentation. They symbolise mystery and obtaining the impossible, this is due to the fact of them being impossible to be naturally made!\e:chain=blueRoseNext"
 }}CHAIN
 
 //Pay careful attention to the CHAIN text and double brackets for these. Double brackets, CHAIN, dialogue, double brackets, CHAIN. If you are planning on making chains, I'd recommend just copying and pasting the chain example here and changing the dialogue and name of the function as you need. Less likely for mistakes to happen, you know?
 //Note also it ends with \e:chain=end, basically ending the chain.
 
-secondchain
+blueRoseNext
 {{CHAIN
-	"\0\s[0]This is the second piece of chained dialogue.\1\w8\s[10]This will lead to a third chain.\e:chain=thirdchain"
+	"\0\s[1]Henry bought me a bouquet of them!\s[26] I'm almost positive he had no idea what he was actually giving to me but, it was such a lovely surprise... He's such a dork aha!\e:chain=end"
 }}CHAIN
 
-thirdchain
+modelPlan
 {{CHAIN
-	"\0\s[0]This is the third piece of chained dialogue.\1\w8\s[10]This is the end.\e:chain=end"
+	"\0\s[5]Sounds like a great plan, right %(username)?\e:chain=end"
 }}CHAIN
 
 //As you can see, you can chain your chains together to make a very long-running conversation if you want! Just make sure to end the chain when you're done.
@@ -178,6 +361,7 @@ OnMinuteChange
 		else
 		{
 			"\0\s[0]Ah, would you look at that! It's %(hour12)'o clock!\e"
+			"\0\s[6]Ding dong, it's %(hour12)'o clock!\e"
 			//%(hour12) stores the time. This is a general top of the hour notification. I personally like this because it helps me keep track of time when I've been working on something, so when a ghost is all "Hey it's 3 o clock" I can be like woah really when did that happen. If you think this is annoying though, you can just delete this bit of dialogue to leave this else statement blank, or leave "" in here instead.
 		}
 	}

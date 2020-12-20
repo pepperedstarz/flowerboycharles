@@ -273,17 +273,30 @@ normalboottalk
 {
 	if RAND(100) < 60 //What this does is choose a random number from 1-100, and then checks if that number is less than 40. If it's less than forty, then these dialogue pieces will occur. Remember, you can have multiple lines of dialogue within one set of brackets like this! You just need to make sure they're all enclosed in their own set of quotation marks.
 		{
-		"\0\s[24]Woah\w8, woah\w8, woah!!!\n\s[4]Gosh...\w8\w8 I can never get used to that landing...\x\c\s[6]Anyways, wassup %(username)!!\e"
+			if CharlieLoveRate >=0
+			{
+				"\0\s[24]Woah\w8, woah\w8, woah!!!\n\s[4]Gosh...\w8\w8 I can never get used to that landing...\x\c\s[6]Anyways, wassup %(username)!!\e"
 	
-		"\0\s[8]Question...\nDo you think Henry would like the pink or blue paint better?\w8\w8\s[3] Wait! You may tell him!\c\s[4]Forget I said anything!\e"
+				"\0\s[8]Question...\nDo you think Henry would like the pink or blue paint better?\w8\w8\s[3] Wait! You may tell him!\c\s[4]Forget I said anything!\e"
 	
-		"\0\s[0]Ah, hello again %(username)!\s[6] Nice to see you!\e"
+				"\0\s[0]Ah, hello again %(username)!\s[6] Nice to see you!\e"
 
-		"\0\s[6]%(username)! You look lovely today! Have you done something different to your look?\e"
+				"\0\s[6]%(username)! You look lovely today! Have you done something different to your look?\e"
 
-		"\0\s[23]Ahhh hii! Gosh, ahahaha!\w4 Henry just told me the best joke!\w4Wait!\w4 Wait!\w4 Wait!\w8 I'll tell you it just\w4 let catch my breath!\w8\x\c\s[2]Oh, uhm.\s[1] I forgot how he phrased it...\e"
+				"\0\s[23]Ahhh hii! Gosh, ahahaha!\w4 Henry just told me the best joke!\w4Wait!\w4 Wait!\w4 Wait!\w8 I'll tell you it just\w4 let catch my breath!\w8\x\c\s[2]Oh, uhm.\s[1] I forgot how he phrased it...\e"
 
-		"\0\s[7]I can't believe that!\w8 I lost a piece for one of my model planes...\w8 Ah,\s[4] sorry %(username), hello.\e"
+				"\0\s[7]I can't believe that!\w8 I lost a piece for one of my model planes...\w8 Ah,\s[4] sorry %(username), hello.\e"
+			}
+			else
+			{
+				"\0\s[4]Ah... Back here with you... Hello, %(username)...\e"
+
+				"\0\s[9]Great. Hello, %(username).\e"
+
+				"\0\s[0]%(username), hello.\e"
+
+				"\0\s[2]Oh!!!\n\s[0]Hello!\e"
+			}
 		}
 	if weekday == 6 && hour >= 19 //This checks if the weekday equals six, meaning saturday AND (using the && operator) if the hour is past 19. You can change these numbers or values to anything you like! As such you can check any combination of date and day and time for potential boot dialogue. You can also add more elseif checks for other days if you want.
 		{
@@ -412,15 +425,25 @@ OnClose
 		{
 			if RAND(100) < 50 //see above about the random number generator
 			{
-				"\0\s[0]Oh? You've got to go?\s[6] Okay! I'll see you later then, bud!\w8\w8"
+				if CharlieLoveRate >=0
+				{
+					"\0\s[0]Oh? You've got to go?\s[6] Okay! I'll see you later then, bud!\w8\w8"
 
-				"\0\s[6]You're going? Coolio! See you later, %(username)!\w8"
+					"\0\s[6]You're going? Coolio! See you later, %(username)!\w8"
 
-				"\0\s[0]Ohhhh, you're leaving! Okay! Byebye!\w8"
+					"\0\s[0]Ohhhh, you're leaving! Okay! Byebye!\w8"
 
-				"\0\s[3]Good timing too, I have a bad feeling about my shop. I should check on it now!\w8"
+					"\0\s[3]Good timing too, I have a bad feeling about my shop. I should check on it now!\w8"
 
-				"\0\s[0]Ah, okay! good luck with the rest of your day, buddy!\w8"
+					"\0\s[0]Ah, okay! good luck with the rest of your day, buddy!\w8"
+				}
+				else
+				{
+					"\0\s[6]Ah, that's great! I'm going to go and see Henry!\w8\w8\n\s[9]Not that you need to know...\e"
+					"\0\s[0]Alright! Bye, %(username)!\e"
+
+				}
+				
 			}
 			else
 			{

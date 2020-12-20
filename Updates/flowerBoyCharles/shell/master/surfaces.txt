@@ -720,8 +720,34 @@ element0,overlay,surface2510.png,0,0
 4pattern1,-1,10,overlay,0,0
 }
 
+surface26
+{
+collision0,63,20,109,37,Head
+collision1,67,40,110,78,Face
+collision2,65,142,108,179,Stomach
+collision5,49,250,131,278,Feet
+element0,overlay,surface2524.png,0,0
+
+//talking
+1interval,talk,4
+1pattern0,0,0,alternativestart,[2.3.4]
+
+2interval,never
+2pattern0,1538,10,overlay,0,0
+2pattern0,1537,13,overlay,0,0
+2pattern1,-1,10,overlay,0,0
+
+3interval,never
+3pattern0,1537,14,overlay,0,0
+3pattern1,-1,10,overlay,0,0
+
+4interval,never
+4pattern0,1538,14,overlay,0,0
+4pattern1,-1,10,overlay,0,0
+}
+
 //CLOTHING FOR CHARLES
-surface0,surface21,surface6,surface4,surface25
+surface0,surface21,surface6,surface4,surface25,surface26
 {
 //none
 900interval,bind
