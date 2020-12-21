@@ -1,0 +1,266 @@
+﻿//Hangman code borrowed from Zi! - https://zichqec.github.io/s-the-skeleton/minigames.html
+
+OnStartHangman //Sets up variables for the game
+{
+    wordtoguess = hangmanwords
+    guessedletters = ""
+    incorrectletters = ""
+    displayword = ""
+    lettersleft = 0
+    maxwrongguesses = 6 //If you want to change how many wrong guesses the user can have, do so here
+    guessingall = 0
+    Hangman
+}
+
+Hangman //Main window of the game
+{
+    for _i = 0; _i < STRLEN(wordtoguess); _i++
+    {
+        _letter = SUBSTR(wordtoguess,_i,1)
+        _letter = TOLOWER(_letter)
+        if _letter _in_ guessedletters || _letter == " " 	 
+        {
+            displayword += "%(SUBSTR(wordtoguess,_i,1))"
+        }
+        else
+        {
+            displayword += "_ "
+            lettersleft += 1
+        }
+    }
+    --
+    if (STRLEN(incorrectletters) / 2) >= maxwrongguesses
+    {
+		CharlieLoveRate++
+        "\0\s[0]Sorry %(username),\w4 you lost this time!\s[6] I'm sure you'll get it next time!\w8\w8\s[0] If you were wondering, the word was %(wordtoguess).\n\n\![*]\q[Play again,OnStartHangman]\n\![*]\q[I'm done,cancelnodialogue]\e"
+    }
+    elseif lettersleft > 0 //If the user still has guesses and there are still letters unknown
+    {
+        _mistakesleft = (maxwrongguesses - (STRLEN(incorrectletters) / 2))
+        _mistakesmarker = ""
+
+        "\0\_q\*\![set,balloontimeout,0]\![set,autoscroll,disable]%(displayword)\n\nGuessed letters: %(incorrectletters)\n\nMistakes left:  \![open,inputbox,OnGuessHangman,-1]"
+        --
+        for _i = 0; _i < _mistakesleft; _i++
+        {
+            _mistakesmarker += "\![*]"
+        }
+        --
+        "%(_mistakesmarker)"
+        --
+        if lettersleft > 1
+        {
+        "\n\n\![*]\q[Guess the whole word,GuessWholeWord]"
+        }
+        --
+        "\n\![*]\q[Open the input box again,HangmanInput]\n\n\![*]\q[Give up,HangmanQuit]\e"
+    }
+    else //If lettersleft is still 0 after the for loop is done, all the letters are filled in! You win.
+    {
+		CharlieLoveRate++
+        "\0\s[2]Well done, %(username)!\s[6] You won, buddy!\w8\w8\s[0] The word was %(wordtoguess)!\n\n\![*]\q[Play again,OnStartHangman]\n\![*]\q[I'm done,cancelnodialogue]\e"
+    }
+}
+
+OnGuessHangman //When the user has put in a guess
+{
+    if guessingall == 0 //Normal guesses
+    {
+        reference0 = TOLOWER(reference0)
+        wordtoguessL = TOLOWER(wordtoguess)
+        displayword = ""
+        
+        if STRLEN(reference0) > 1 //Checks if the user's guess is longer than 1 letter
+        {
+            lettersleft = 0
+            "\0\s[0]Single letters only,\w4 please.\x"
+        }
+        elseif reference0 _in_ guessedletters //If they've already guessed that letter
+        {
+            lettersleft = 0
+            "\0\s[0]You already guessed that, %(username)!\w8\x"
+        }
+        elseif reference0 _in_ wordtoguessL //If their guess is in the word
+        {
+            lettersleft = 0
+            guessedletters += reference0
+        }
+        else //If they guess something that isn't in the word
+        {
+            lettersleft = 0
+            guessedletters += reference0
+            incorrectletters += "%(reference0) "
+        }
+        --
+        Hangman
+    }
+    else //If the user is attempting to guess the whole word
+    {
+        reference0 = TOLOWER(reference0)
+        _wordtoguessL = TOLOWER(wordtoguess)
+        
+        if reference0 == _wordtoguessL //If you guess the word correctly
+        {
+			CharlieLoveRate++
+            "\0\s[6]That's right,\w4 the word was %(wordtoguess)!\w8\w8\s[0] Grand job, buddy!\w8\w8\s[0] You guessed it with only %(lettersleft) letters still blank, wow!"
+            --
+            "\n\n\![*]\q[Play again,OnStartHangman]\n\![*]\q[I'm done,cancelnodialogue]\e"
+        }
+        else //If your guess is incorrect. Instant lose.
+        {
+			CharlieLoveRate++
+            "\0\s[4]Aw, better luck next time buddy...\w4 That is incorrect.\w8\w8\s[0] The word was %(wordtoguess)!\n\n\![*]\q[Play again,OnStartHangman]\n\![*]\q[I'm done,cancelnodialogue]\e"
+        }
+    }
+}
+
+Select.GuessWholeWord //When the user decides to guess the whole word.
+{
+    guessingall = 1
+    "\0\*\![set,balloontimeout,0]\![close,inputbox,OnGuessHangman]\![open,inputbox,OnGuessHangman]"
+    --
+    "\s[0]The word so far is\n%(displayword).\w8\w8\n\nYou've guessed these letters: %(incorrectletters)\w8\n\n\s[6]What is your guess?"
+    --
+    "\n\n\![*]\q[Open the input box again,GuessWholeWord]\n\n\![*]\q[Give up,HangmanQuit]\e"
+}
+
+Select.HangmanInput //If the user accidentally closes the input box, they can choose this.
+{
+    displayword = ""
+    lettersleft = 0
+    "\![close,inputbox,OnGuessHangman]"
+    --
+    Hangman
+}
+
+Select.HangmanQuit //When the user chooses to give up. You can have this direct back to any menu you choose, or simply close the balloon entirely.
+{
+    "\0\![close,inputbox,OnGuessHangman]\s[4]Aww, ok...\w8\w8\s[6] The word was %(wordtoguess).\x"
+    --
+    MenuRun
+}
+
+hangmanwords //Words it can choose.
+{
+    "Hangman"
+    "Henry"
+    "Triangle"
+    "Rhythm"
+    "Jazz"
+    "Cactus"
+    "Buttercup"
+    "Bouquet"
+    "Bittersweet"
+    "Ukagaka"
+    "Ghost"
+	"Carnation"
+	"Soul"
+	"Lynx"
+	"Cherry"
+	"Cinnamon"
+	"Musicals"
+	"Model"
+	"Helicopter"
+	"Plan"
+	"Post"
+	"Clover"
+	"Cornflower"
+	"Cosmos"
+	"Stars"
+	"Daffodil"
+	"Daisy"
+	"Dandelion"
+	"Elderberry"
+	"Discombobulated"
+	"Henrles"
+	"Everlasting"
+	"Stellar"
+	"Dollop"
+	"Enderman"
+	"Flytrap"
+	"Toliet"
+	"Crumpet"
+	"Fuchsia"
+	"Garlic"
+	"Ginger"
+	"Gooseberry"
+	"Bart"
+	"Grape"
+	"Grass"
+	"Endearing"
+	"Hazel"
+	"Heather"
+	"Holly"
+	"Mistletoe"
+	"Honesty"
+	"Honeysuckle"
+	"Hyacinth"
+	"Iris"
+	"Ivy"
+	"Jasmine"
+	"Venus"
+	"Mars"
+	"Lavender"
+	"Lilac"
+	"Lily"
+	"Magnolia"
+	"Marigold"
+	"Mint"
+	"Mushroom"
+	"Nightshade"
+	"Nosegay"
+	"Orchid"
+	"Peach"
+	"Pear"
+	"Petunia"
+	"Peppermint"
+	"Pineapple"
+	"Pine"
+	"Plum"
+	"Poppy"
+	"Primrose"
+	"Raspberry"
+	"Blackberry"
+	"Rhubarb"
+	"Tinsel"
+	"Santa"
+	"Rose"
+	"Toppat"
+	"Rosemary"
+	"Saffron"
+	"Innersloths"
+	"Developer"
+	"Designer"
+	"Artist"
+	"Music"
+	"Headphones"
+	"Snowflake"
+	"Spearmint"
+	"Strawberry"
+	"Sunflower"
+	"Basil"
+	"Tulip"
+	"Violet"
+	"Walnut"
+	"Muffin"
+	"Wheat"
+	"Willow"
+	"Cascade"
+	"Posy"
+	"Round"
+	"Pomander"
+	"Composite"
+	"Biedermeier"
+	"Dunagrees"
+	"Overalls"
+	"Belt"
+	"Voice"
+	"Sunshine"
+	"Starlight"
+	"Sunrise"
+	"Sunset"
+	"Minecraft"
+	"Stickmin"
+	"Smile"
+	"Water"
+}

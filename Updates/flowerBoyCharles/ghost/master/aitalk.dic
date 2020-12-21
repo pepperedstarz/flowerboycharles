@@ -81,7 +81,7 @@ if CharlieLoveRate >= 50 // he loves you
 
 	"\0\s[8]Hmm... What would be your favourite flower...? I think mine would be a Blue Rose!\e:chain=blueRoseStart\e"
 
-	"\0\s[0]I was looking around within the files of this place and\s[6] did you know I have hotkeys?\n\x\cYou can press: 't'so I know I should talk again!\n 'r' so I know to repeat my last sentence\n and 'f1' so I know you want to look at the readme!\x\c\s[5]I thought that was really cool! Like body language without seeing it!\w8\w8... almost...\e"
+	"\0\s[0]I was looking around within the files of this place and\s[6] did you know I have hotkeys?\n\w8\w8\cYou can press: 't'so I know I should talk again!\n 'r' so I know to repeat my last sentence\n and 'f1' so I know you want to look at the readme!\w8\w8\c\s[5]I thought that was really cool! Like body language without seeing it!\w8\w8... almost...\e"
 	
 	"\0\s[2]WHAT!\s[3]\cNononononono...\n%(username)! I think I just saw a spider...\e"
 
@@ -91,11 +91,49 @@ if CharlieLoveRate >= 50 // he loves you
 
 	"\0\s[8]Hmmm... I wonder what model plane I should get next... \s[2]OH!\s[5] Maybe a helicopter!\e:chain=modelPlan"
 
-	"\0\s[4]Man...\s[3] I really fancy a hotdog...\e"
+	"\0\s[4]Man...\s[3] I really fancy a hotdog...\s[8] Do you wanna go get some, %(username)?\e"
 
-	"\0\s[0]What are you up to, %(username)?\e"
+	"\0\s[0]What are you up to, %(username)? It looks pretty interesting!\e"
 
-	"\0\s[8]A milkshake would be really nice right about now... hm...\e"
+	"\0\s[8]A milkshake would be really nice right about now!\s[5] We should go and get some!\e"
+
+	"\0\s[0]It's hard to practice self-love when you're not feeling so well but\s[4] uhh... \s[6]try to take a little good care of yourself today, alright? I'll be there to help ya.\e"
+
+	"\0\s[8]Do you like musicals?\s[5]\w8\w8 My friend, Reginald, loves them!\w8\w8\cHe actually owns a theatre! I bet you'd like him, he does some really cool shows and musicals there!\e\e"
+
+	"\0\s[0]I remember the first day I opened up my flower shop...\s[2] I got one customer! He wasn't even very nice, aha! But, I guess flowers don't make up for time you loose at work!\e"
+
+	"\0\s[8]A lot of people know things about certain flowers like roses, tulips, dasies and liles but, they seem to always forget about gomphrena globosa and ammi maju!\s[6] I think they are just as pretty!\e"
+
+	"\0\s[0]Say, %(username)?\s[8] How much have I taught you about flowers since I've been here?\e"
+
+	"\0\s[26]But to say that I'm a rainbow\nTo tell me that I'm bright\w8\cWhen I'm so used to feeling wrong\nWell, it makes me feel all right~\e"
+
+	"\0\s[26]Feel the light\nShining like the stars tonight\w8\cRemember what we forgot\nI know it's a long shot\w8\cBut we're bringing it all back, we're bringing it all back~\e"
+
+	"\0\s[0]Don't forget!\nYou can always visit me while I'm working too! We're open Monday to Saturday so, feel free to pop in anytime for a chat!\e"
+
+	"\0\s[26]Oh girl, it's you that I lie with\n\w8\w8As the atom bomb locks in...\n\w8\w8\cOh it's you, I watch TV with\n\w8\w8As the world caves in~\e"
+
+	"\0\s[0]Hey, %(username)! Have you had a drink recently?\e"
+
+	"\0\s[8]Hm... Maybe we should have a snack...\e"
+
+	"\0\s[0]How long has it been since you've had some water? Maybe you should go get some!\e"
+
+	"\0\s[2]You have some pretty interesting things in your documents folder!\w8\c\s[6]I'm joking! I'll never look through your things without premission!\e"
+
+	"\0\s[0]Hello? Hello-hello?\e"
+
+	"\0\s[6]Don't forget you can always change my talk rate! So I can talk to you more!\w8\s[4] Or less...\e"
+
+	"\0\s[0]Did you know I used to work for the post office?\s[6] I was a delivery driver!\n I think I got my shop just a week after Ellie started working there!\e"
+
+	"\0\s[5]I've always loved dunagrees... So comfortable...\e"
+
+	"\0\s[6]Everything will be alright.\nHealing has always taken time, be patient with yourself!\e"
+
+	"\0\s[6]We're all capable of doing something extraordinary. It takes one step of courage and motivation to become the bold action man in your life! So don't be afraid to take that one step. You're gonna do amazing.\e"
 
 	}
 elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50 //he likes you
@@ -128,7 +166,7 @@ elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50 //he likes you
 
 	"\0\s[8]Hmm... What would be your favourite flower...? I think I know what mine would be...\e"
 
-	"\0\s[0]I was looking around within the files of this place and\s[6] did you know I have hotkeys?\n\x\cYou can press: 't'so I know I should talk again!\n 'r' so I know to repeat my last sentence\n and 'f1' so I know you want to look at the readme!\x\c\s[5]I thought that was really cool! Like body language without seeing it!\w8\w8... almost...\e"
+	"\0\s[0]I was looking around within the files of this place and\s[6] did you know I have hotkeys?\n\w8\w8\cYou can press: 't'so I know I should talk again!\n 'r' so I know to repeat my last sentence\n and 'f1' so I know you want to look at the readme!\w8\w8\c\s[5]I thought that was really cool! Like body language without seeing it!\w8\w8... almost...\e"
 	
 	"\0\s[2]WHAT!\s[3]\cNononononono...\n%(username)! I think I just saw a spider...\e"
 
@@ -142,15 +180,15 @@ elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50 //he likes you
 
 	"\0\s[0]What are you up to, %(username)?\e"
 
-	"\0\s[8]A milkshake would be really nice right about now... hm...\e"
+	"\0\s[8]A milkshake would be really nice right about now...!\e"
 
-	"\0\s[8]Do you like musicals?\s[5]\w8\w8 My friend, Reginald, loves them!\e"
+	"\0\s[8]Do you like musicals?\s[5]\w8\w8 My friend, Reginald, loves them!\w8\w8\cHe actually owns a theatre! I bet you'd like him, he does some really cool shows and musicals there!\e\e"
 
-	"\0\s[8]Have I formally told you that I own and run a flower shop?\n\s[0]I have a bad habit of assuming people know me from my shop so, if that's not the case,\s[3] I'm sorry for the bad introduction!\e"
+	"\0\s[0]I remember the first day I opened up my flower shop...\s[2] I got one customer! He wasn't even very nice, aha! But, I guess flowers don't make up for time you loose at work!\e"
 
-	"\0\s[8]A lot of people know things about certain flowers like roses, tulips, dasies and liles but, they seem to always forget about gomphrena globosa and ammi maju! I think they are just as pretty!\e"
+	"\0\s[8]A lot of people know things about certain flowers like roses, tulips, dasies and liles but, they seem to always forget about gomphrena globosa and ammi maju!\s[6] I think they are just as pretty!\e"
 
-	"\0\s[0]Say, %(username)?\s[8] How much do you know about flowers?\w8\s[6] Maybe I can teach you a thing or two about them while I'm here!\e"
+	"\0\s[0]Say, %(username)?\s[8] How much have I taught you about flowers since I've been here?\e"
 
 	"\0\s[26]But to say that I'm a rainbow\nTo tell me that I'm bright\w8\cWhen I'm so used to feeling wrong\nWell, it makes me feel all right~\e"
 
@@ -167,6 +205,18 @@ elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50 //he likes you
 	"\0\s[0]How long has it been since you've had some water? Maybe you should go get some!\e"
 
 	"\0\s[2]You have some pretty interesting things in your documents folder!\w8\c\s[6]I'm joking! I'll never look through your things without premission!\e"
+
+	"\0\s[0]Hello? Hello-hello?\e"
+
+	"\0\s[6]Don't forget you can always change my talk rate! So I can talk to you more!\w8\s[4] Or less...\e"
+
+	"\0\s[0]Did you know I used to work for the post office?\s[6] I was a delivery driver!\e"
+
+	"\0\s[5]I've always loved dunagrees... So comfortable...\e"
+
+	"\0\s[6]Everything will be alright.\nHealing has always taken time, be patient with yourself!\e"
+
+	"\0\s[0]It's hard to practice self-love when you're not feeling so well but\s[4] uhh... \s[6]try to take a little good care of yourself today, alright? I'll be there to help ya.\e"
 
 	}
 elseif CharlieLoveRate < 25 && CharlieLoveRate >= 0 //he thinks ur ok but no prefrence
@@ -195,6 +245,8 @@ elseif CharlieLoveRate < 25 && CharlieLoveRate >= 0 //he thinks ur ok but no pre
 		}
 
 	"\0\s[2]WHAT!\s[3]\cNononononono...\n%(username)! I think I just saw a spider...\e"
+	
+	"\0\s[6]Everything will be alright.\nHealing has always taken time, be patient with yourself!\e"
 
 	"\0\s[8]Hmm... What would be your favourite flower...? I'm trying to decide what mine would be...\e"
 
@@ -234,9 +286,18 @@ elseif CharlieLoveRate < 25 && CharlieLoveRate >= 0 //he thinks ur ok but no pre
 
 	"\0\s[2]You have some pretty interesting things in your documents folder!\w8\c\s[6]I'm joking! I'll never look through your things without premission!\e"
 
+	"\0\s[0]Hello? Hello-hello?\e"
+
+	"\0\s[6]Don't forget you can always change my talk rate! So I can talk to you more!\w8\s[4] Or less...\e"
+
+	"\0\s[5]I've always loved dunagrees... So comfortable...\e"
+
 	}
 else
 	{
+
+	"\0\s[6]Everything will be alright.\nHealing has always taken time, be patient with yourself!\e"
+
 	"\0\s[4]I think you need to start...\w8\w8being nicer to people...\e"
 
 	"\0\s[0]How come you wanted me here? Was there a reason?\nCuz you could have just come to my shop to talk to me. We're open Monday to Saturday...\e"
@@ -276,6 +337,8 @@ else
 	"\0\s[4]Man...\s[3] I really fancy a hotdog...\s[25] I'll see if Henry wants to go and get hotdogs with me later...\e"
 
 	"\0\s[8]A milkshake would be really nice right about now... hm...\e"
+
+	"\0\s[6]Always remember to be kind. You never know when someone might need it.\e"
 	}
 }	
 
@@ -297,7 +360,7 @@ blueRoseNext
 
 modelPlan
 {{CHAIN
-	"\0\s[5]Sounds like a great plan, right %(username)?\e:chain=end"
+	"\0\s[5]I think my next model being a helicopter is a great plan, right %(username)?\e:chain=end"
 }}CHAIN
 
 //As you can see, you can chain your chains together to make a very long-running conversation if you want! Just make sure to end the chain when you're done.

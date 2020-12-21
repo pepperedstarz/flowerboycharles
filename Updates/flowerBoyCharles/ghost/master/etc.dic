@@ -357,6 +357,8 @@ OnUpdate.OnDownloadBegin
 	"\0\s[2]What's this? A new file?\e"
 	
 	"\0\s[2]I've found a new file, cool!\e"
+
+	"\0\s[2]New files? New features? What's that devilish developer doing...\e"
 	}
  }
 
@@ -365,7 +367,7 @@ OnUpdate.OnDownloadBegin
  
 OnUpdate.OnMD5CompareBegin
  {
-	"\0\s[0]Checking the MD5 value...\e"
+	""
  }
 
  //---- OnUpdate.OnMD5CompareComplete --------------------------------------------------
@@ -373,7 +375,7 @@ OnUpdate.OnMD5CompareBegin
  
 OnUpdate.OnMD5CompareComplete
  {
-	"\0\s[6]MD5 check is good! Yay!\e"
+	""
 }
 
  //---- OnUpdate.OnMD5CompareFailure ---------------------------------------------------

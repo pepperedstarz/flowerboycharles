@@ -1,0 +1,161 @@
+﻿
+//OX游戏，by Pygmalion, loosely translated by Zar
+//-------------------------------------------
+
+OnPlayOX
+{
+	arrOX = IARRAY
+	for _i = 0; _i < 9; _i++ {
+		arrOX = (arrOX, 0)
+	}
+	"\0\s[0]Tic-tac-toe?\s[6] Awesome, Let's play!\w8\w8\c"
+	"\0\s[0]Xs and Os, huh?\w8\w8\c"
+	"\0\s[6]Ooh! Tic-tac-toe!!\w8\w8\c"
+	"\0\s[5]Tic-tac-toe, here we go!\w8\w8\c"
+	--
+	PlayOXshow(0)
+}
+
+PlayOXshow
+{
+	_tempstr = ""
+	for _i = 0; _i < 3; _i++ {
+		for _j = 0; _j < 3; _j++ {
+			_temp = _i * 3 + _j
+			if arrOX[_temp] == -1
+				_tempstr = _tempstr + "X"
+			elseif arrOX[_temp] == 1
+				_tempstr = _tempstr + "O"
+			elseif _argv[0] == 0
+				_tempstr = _tempstr + "\q[　,PlayOXrun("+_temp+")]"
+			else
+				_tempstr = _tempstr + "　"
+			if _j != 2
+				_tempstr = _tempstr + " | "
+		}
+		_tempstr = _tempstr + "\n[90]"
+		if _i != 2
+		{
+			_tempstr = _tempstr + "------------"
+		}
+		_tempstr = _tempstr + "\n[90]"
+	}
+	switch _argv[0]
+	{
+		"\_q\0\s[0]\b[2]%(username)'s turn...\n\n%(_tempstr)\n\q[Back,GMenu]\e"
+		{
+			"\_q\0\s[9]\b[2]\n%(_tempstr)\n[half]\_qAwww, I lost!\n\w9\w9\s[6]Good Job, %(username)!\w9\w9\n[150]\q[Play Again,OnPlayOX]\n\q[Back,GMenu]\e"
+			"\_q\0\s[6]\b[2]\n%(_tempstr)\n[half]\_q\w9\w9Wow! you're so good at this, %(username)!\w8\w8\w8\n[150]\q[Play Again,OnPlayOX]\n\q[Back,GMenu]\e"
+			"\_q\0\s[2]\b[2]\n%(_tempstr)\n[half]\_q\nDang... \s[6]How about another game!\w9\w9\w9\w9\n[150]\q[Play Again,OnPlayOX]\n\q[Back,GMenu]\e"
+		}
+		
+		{
+			"\_q\0\s[0]\b[2]\n%(_tempstr)\n[half]\_q\w9\%(CharlieLoveRate) It's a tie!\n[150]\q[Play Again,OnPlayOX]\n\q[Back,GMenu]\e"
+			"\_q\0\s[2]\b[2]\n%(_tempstr)\n[half]\_q\w9\w9Another tie...\n[150]\q[Play Again,OnPlayOX]\n\q[Back,GMenu]\e"
+			"\_q\0\s[8]\b[2]\n%(_tempstr)\n[half]\_q\w9\w9We tied... Wanna try again?\n[150]\q[Play Again,OnPlayOX]\n\q[Back,GMenu]\e"
+		}
+		
+		{
+			"\_q\0\s[5]\b[2]\n%(_tempstr)\n[half]\_q\w9%(CharlieLoveRate) I won! Yayyy~!!\n[150]\q[Play Again,OnPlayOX]\n\q[Back,GMenu]\e"
+			"\_q\0\s[6]\b[2]\n%(_tempstr)\n[half]\_q\w9\w9I win, %(username). Good game!\n[150]\q[Play Again,OnPlayOX]\n\q[Back,GMenu]\e"
+		}
+	}
+}
+
+Select.PlayOXrun
+{
+	arrOX[_argv[0]] = -1
+	if PlayOXover(_argv[0]) != 1
+	{
+		_tempid = -1
+		_rightmax = -24
+		_tempright = 0
+		for _i = 0; _i < 9; _i++ {
+			if arrOX[_i] == 0
+			{
+				arrOX[_i] = 1
+				if PlayOXover(_i) == 1
+				{
+					arrOX[_i] = 0
+					_tempid = _i
+					break
+				}
+				_rightmin = 24
+				for _j = 0; _j < 9; _j++ {
+					if arrOX[_j] == 0
+					{
+						arrOX[_j] = -1
+						_tempright = 0
+						_temparry = IARRAY
+						_temparry = (_temparry,arrOX[0] + arrOX[1] + arrOX[2])
+						_temparry = (_temparry,arrOX[3] + arrOX[4] + arrOX[5])
+						_temparry = (_temparry,arrOX[6] + arrOX[7] + arrOX[8])
+						_temparry = (_temparry,arrOX[0] + arrOX[3] + arrOX[6])
+						_temparry = (_temparry,arrOX[1] + arrOX[4] + arrOX[7])
+						_temparry = (_temparry,arrOX[2] + arrOX[5] + arrOX[8])
+						_temparry = (_temparry,arrOX[0] + arrOX[4] + arrOX[8])
+						_temparry = (_temparry,arrOX[2] + arrOX[4] + arrOX[6])
+						_oxnum = 0
+						foreach _temparry; _k {
+							_tempright += _k
+							if _k == -3
+								_oxnum = 24
+							if _k == -2
+								_oxnum++
+							if _k == 2
+								_oxnum--
+						}
+						if _oxnum > 1
+							_tempright = -24
+						if _tempright < _rightmin
+						{
+							_rightmin = _tempright
+						}
+						arrOX[_j] = 0
+					}
+				}
+				if _rightmin > _rightmax
+				{
+					_rightmax = _rightmin
+					_tempid = _i
+				}
+				arrOX[_i] = 0
+			}
+		}
+		if _tempid == -1
+			PlayOXshow(2)
+		else
+		{
+			arrOX[_tempid] = 1
+			if PlayOXover(_tempid) == 1
+			{
+				PlayOXshow(3)
+			}
+			else
+			{
+				PlayOXshow(0)
+			}
+		}
+	}
+	else
+		PlayOXshow(1)
+}
+
+PlayOXover
+{
+	_nowrow = _argv[0] / 3
+	_nowcolumn = _argv[0] % 3
+	if arrOX[_nowrow*3] == arrOX[_nowrow*3+1] && arrOX[_nowrow*3+1] == arrOX[_nowrow*3+2] && arrOX[_nowrow*3] != 0 /
+	|| arrOX[_nowcolumn] == arrOX[3+_nowcolumn] && arrOX[3+_nowcolumn] == arrOX[6+_nowcolumn] && arrOX[_nowcolumn] != 0 /
+	|| arrOX[0] == arrOX[4] && arrOX[4] == arrOX[8] && arrOX[8] != 0 /
+	|| arrOX[2] == arrOX[4] && arrOX[4] == arrOX[6] && arrOX[6] != 0
+	{
+		1
+	}
+	else
+		0
+}
+Select.GMenu
+{
+	gamesMenu
+}

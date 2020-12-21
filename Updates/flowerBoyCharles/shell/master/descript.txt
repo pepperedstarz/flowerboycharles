@@ -94,9 +94,11 @@ menu.sidebar.bitmap.filename,menu_sidebar.png
 //sakura.bindgroup51.name,face,glasses
 
 sakura.bindgroup900.name,Clothing,Shop-wear
-sakura.bindgroup900.default,1
+sakura.bindgroup900.default,2
 sakura.bindgroup901.name,Clothing,Stripes
-sakura.bindgroup901.default,0
+sakura.bindgroup901.default,1
+sakura.bindgroup902.name,Clothing,Duck-Onsie
+sakura.bindgroup902.default,0
 
 //kero.bindgroup55.name,face,glasses
 //kero.bindgroup57.name,hair,hairpins
@@ -107,6 +109,7 @@ sakura.bindgroup901.default,0
 //sakura.menuitem0,51
 sakura.menuitem0,900
 sakura.menuitem1,901
+sakura.menuitem2,902
 
 //kero.menuitem0,55
 //kero.menuitem1,-
