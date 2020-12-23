@@ -60,7 +60,7 @@ MouseMoveSakura
 					"\0\s[1]%(username)! I'd pet you back\s[4] if I could...\e"
 					"\0\s[6]You're so sweet, %(username)..."
 				}
-				elseif CharlieLoveRate >= 25 && CharlieLoveRate > 50
+				elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50
 				{
 					"\0\s[1]You really love giving me pets, huh?\e"
 					"\0\s[5]Hehe! I love it when you make a fuss of me like this!\e"
