@@ -52,21 +52,26 @@ MouseMoveSakura
 			if reference4 == "Head" || reference4 == "Face" //do you remember the names of the areas you set up for your collisions in surfaces.txt? This is where they come into play! This is where you'd put in the name of your collision, such as head, face, horns, tail, ears, whatever. As mentioned in surfaces.txt, you can add as many collisions to a pose as you want, as long as you make sure to add them all in here so they can actually be used.
  			{
 				CharlieLoveRate++
-				if CharlieLoveRate >= 50
+				if CharlieLoveRate >= 70
 				{
-					"\0\s[1]Ah, %(username)! Wassup? Why all the loving, aha?\e"
+					"\0\s[1]Ah, %(username)! Wassup?\s[25] Why all the loving, aha?\e"
 					"\0\s[6]Awh, I love you too buddy!\e"
 					"\0\s[5]You're so lovely, %(username)!\e"
 					"\0\s[1]%(username)! I'd pet you back\s[4] if I could...\e"
 					"\0\s[6]You're so sweet, %(username)..."
 				}
-				elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50
+				elseif CharlieLoveRate >= 25 && CharlieLoveRate < 70
 				{
 					"\0\s[1]You really love giving me pets, huh?\e"
 					"\0\s[5]Hehe! I love it when you make a fuss of me like this!\e"
 					"\0\s[6]Awh, thank you so much! <33\e"
 					"\0\s[5]You're so nice, thankie! Hehe!\e"
 					"\0\s[6]Petz timez!!\e"
+					"\0\s[25]%(username)! Hehe!\e"
+					"\0\s[6]Oooh~! Hello, %(username)! Thank youuu!\e"
+					"\0\s[1]Gosh, %(username)...\e"
+					"\0\s[25]Hehe, thank you! You're too sweet...\e"
+					"\0\s[5]I'm guessing you really like my fluffy hair, huh?\e"
 				}
 				elseif CharlieLoveRate >= 0 && CharlieLoveRate < 25
 				{
@@ -97,6 +102,8 @@ MouseMoveSakura
 			{
 				if CharlieLoveRate >= 0
 				{
+				CharlieLoveRate++
+				--
 				"\0\s[23]Ahh! \w3That tickles!!\e"
 				"\0\s[23]Who brought on the tickle monster? ahah!\e"
 				"\0\s[23]Ahhh!\w3 Stop!\w3 I'm really t-ticklish! \w3ahaha!\e"
@@ -131,6 +138,8 @@ MouseMoveSakura
 			}
 			elseif reference4 == "Feet"
 			{
+				CharlieLoveRate = CharlieLoveRate - 1
+				--
 				"\0\s[9]Please \w4don't touch my feet.\e"
 				"\0\s[9]Get away from my feet, \w4please.\e"
 				"\0\s[9]Wh- \w4Stop touching my feet! Please.\e"

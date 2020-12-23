@@ -52,7 +52,7 @@ RandomTalk : nonoverlap
 {
 	//Alright, here is where all your dialogue will go. I hope you studied how to format dialogue carefully in the walkthrough, as there is little here I can help you with. You're going to have to write most of it yourself. So instead, I'll give you a set of examples to look at.
 
-if CharlieLoveRate >= 50 // he loves you
+if CharlieLoveRate >= 70 // he loves you
 	{
 	if birthdayprint == "????"
 		{
@@ -136,7 +136,7 @@ if CharlieLoveRate >= 50 // he loves you
 	"\0\s[6]We're all capable of doing something extraordinary. It takes one step of courage and motivation to become the bold action man in your life! So don't be afraid to take that one step. You're gonna do amazing.\e"
 
 	}
-elseif CharlieLoveRate >= 25 && CharlieLoveRate < 50 //he likes you
+elseif CharlieLoveRate >= 25 && CharlieLoveRate < 70 //he likes you
 	{
 	if birthdayprint == "????"
 		{
