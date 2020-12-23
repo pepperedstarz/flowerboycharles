@@ -77,7 +77,7 @@ MouseMoveSakura
 					"\0\s[0]Oh? Pets?"
 					//Replace these with whatever petting responses you like. You can also add more dialogue here if you want, or cut them down. Though removing them entirely seems a bit counter-intuitive to all that work we've been doing.
 				}
-				else
+				elseif CharlieLoveRate < 0
 				{
 					"\0\s[2]Oh!\s[3] uhm... uh\s[4] thanks...?\e"
 					"\0\s[9]I don't think we are close enough for that sort of attention, %(username).\e"
@@ -85,27 +85,31 @@ MouseMoveSakura
 					"\0\s[9]...\e"
 					"\0\s[4].\w8\w8.\w8\s[9].\e"
 				}
+				else
+				{
+					"\0\s[0]Oh? Pets?"
+				}
 				
 				//Replace these with whatever petting responses you like. You can also add more dialogue here if you want, or cut them down. Though removing them entirely seems a bit counter-intuitive to all that work we've been doing.
  			}
  			
 			elseif reference4 == "Stomach"
 			{
-			if CharlieLoveRate >= 0
-			{
+				if CharlieLoveRate >= 0
+				{
 				"\0\s[23]Ahh! \w3That tickles!!\e"
 				"\0\s[23]Who brought on the tickle monster? ahah!\e"
 				"\0\s[23]Ahhh!\w3 Stop!\w3 I'm really t-ticklish! \w3ahaha!\e"
 				"\0\s[23]W-wait! \w3Stop! \w3ahaha!\w3 I'm gonna pee!\e"
-			}
-			else
-			{
+				}
+				else
+				{
 				CharlieLoveRate -=2
 				"\0\s[7]Hey no, don't tickle me.\e"
 				"\0\s[7]What made you think trying to do that was a good idea? No, thank you.\e"
 				"\0\s[9]No, go away. I don't want you touching my stomach.\e"
 				"\0\s[9]Don't do that.\e"
-			}
+				}
 				
 			}
 			elseif reference4 == "LeftHand" || reference4 == "RightHand"

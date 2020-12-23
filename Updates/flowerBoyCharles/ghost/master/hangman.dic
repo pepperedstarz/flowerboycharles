@@ -31,7 +31,7 @@ Hangman //Main window of the game
     --
     if (STRLEN(incorrectletters) / 2) >= maxwrongguesses
     {
-		CharlieLoveRate++
+		//CharlieLoveRate++
         "\0\s[0]Sorry %(username),\w4 you lost this time!\s[6] I'm sure you'll get it next time!\w8\w8\s[0] If you were wondering, the word was %(wordtoguess).\n\n\![*]\q[Play again,OnStartHangman]\n\![*]\q[I'm done,cancelnodialogue]\e"
     }
     elseif lettersleft > 0 //If the user still has guesses and there are still letters unknown
@@ -57,7 +57,7 @@ Hangman //Main window of the game
     }
     else //If lettersleft is still 0 after the for loop is done, all the letters are filled in! You win.
     {
-		CharlieLoveRate++
+		//CharlieLoveRate++
         "\0\s[2]Well done, %(username)!\s[6] You won, buddy!\w8\w8\s[0] The word was %(wordtoguess)!\n\n\![*]\q[Play again,OnStartHangman]\n\![*]\q[I'm done,cancelnodialogue]\e"
     }
 }
@@ -101,14 +101,14 @@ OnGuessHangman //When the user has put in a guess
         
         if reference0 == _wordtoguessL //If you guess the word correctly
         {
-			CharlieLoveRate++
+			//CharlieLoveRate++
             "\0\s[6]That's right,\w4 the word was %(wordtoguess)!\w8\w8\s[0] Grand job, buddy!\w8\w8\s[0] You guessed it with only %(lettersleft) letters still blank, wow!"
             --
             "\n\n\![*]\q[Play again,OnStartHangman]\n\![*]\q[I'm done,cancelnodialogue]\e"
         }
         else //If your guess is incorrect. Instant lose.
         {
-			CharlieLoveRate++
+			//CharlieLoveRate++
             "\0\s[4]Aw, better luck next time buddy...\w4 That is incorrect.\w8\w8\s[0] The word was %(wordtoguess)!\n\n\![*]\q[Play again,OnStartHangman]\n\![*]\q[I'm done,cancelnodialogue]\e"
         }
     }

@@ -613,9 +613,9 @@ Select.ChoiceGarbagecan
 	}
 	elseif _gomicheck >= 1 //If the recycle bin is full.
 	{
-		"\0\s[0]Alrighty, I'll go check your recycling bin!\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\s[10]\cAll cleaned up!\e"
+		"\0\s[0]Alrighty, I'll go check your recycling bin!\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\s[0]\cAll cleaned up!\e"
 		
-		"\0\s[0]Okie! Time to take out the trash!\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\s[10]\cAll finished up!\e"
+		"\0\s[0]Okie! Time to take out the trash!\w8\w8\s[-1]\w8\w8\w8\w8\w8\![raise,OnGarbagecanEmpty]\w9\w9\w9\0\s[0]\cAll finished up!\e"
 		
 		//Somewhat similar to the above, but notice the \![raise],OnGarbagecanEmpty] tag in there. That's what actually empties the recycle bin, so make sure you don't delete that tag. Otherwise, replace the dialogue as you want.
 		//As you can see, you can have multiple pieces of dialogue in here, just like you can for many other functions scattered through the .dic files. If you only want the one, just delete the others, or if you want to add more, just copy and paste and write new dialogue as it comes to you. This applies to when the recycle bin is empty as well.
