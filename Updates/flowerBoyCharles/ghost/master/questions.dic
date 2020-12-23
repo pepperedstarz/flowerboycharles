@@ -10,8 +10,19 @@ OnStartUSERconfess
 OnUSERconfess
 {
 	confession = reference0
-	"\0\s[0]Ohhh! Is that so? That's okay!\s[6]\w4 You're okay!\w4 You're still the perfect you despite this! I believe in you, buddy!\e"
-	"\0\s[8]Mhmm... I understand, %(username)...\s[6] It's alright, you're doing well!\w4 I'm proud of you for talking to me about this!\e"
-	"\0\s[0]Ah... It's alright, buddy.\s[6]\w4 You're okay!\w4 You're strong and beautiful just the way you are and no one can take that away!\e"
-	"\0\s[]Mhmm... I understand.That's okay!\s[6]\w4 You're okay!\w4 You're doing well! I'm proud of you and am always here for you!\e"
+	if confession == "I love you/p" || confession == "i love you/p" && username == "Soul" ||username == "soul"
+	{
+		"\0\s[7]How dare you. I'm too beautiful 'n' sexy for you to act like that, %(username)!\s[9] Confess properly, geez.\e"
+	}
+	elseif confession == "I love you" || confession == "i love you" && username == "Soul" ||username == "soul"
+	{
+		"\0\s[25]Hehe. That's much better! I love you too! Oh so much!! <33\e"
+	}
+	else
+	{
+		"\0\s[0]Ohhh! Is that so? That's okay!\s[6]\w4 You're okay!\w4 You're still the perfect you despite this! I believe in you, buddy!\e"
+		"\0\s[8]Mhmm... I understand, %(username)...\s[6] It's alright, you're doing well!\w4 I'm proud of you for talking to me about this!\e"
+		"\0\s[0]Ah... It's alright, buddy.\s[6]\w4 You're okay!\w4 You're strong and beautiful just the way you are and no one can take that away!\e"
+		"\0\s[]Mhmm... I understand.That's okay!\s[6]\w4 You're okay!\w4 You're doing well! I'm proud of you and am always here for you!\e"
+	}
 }

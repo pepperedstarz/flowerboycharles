@@ -1,6 +1,6 @@
 Charset,UTF-8
 __system_settings_version__,2
-char0.bind.savearray,900=0 901=0 902=1
+char0.bind.savearray,900=0 901=1 902=0
 balloon,C:\Users\104bu\Downloads\ssp_2_4_88f\balloon\flowerSparkleBalloon\
 Char1.balloon.isleft,0
 inputbox.left,860
